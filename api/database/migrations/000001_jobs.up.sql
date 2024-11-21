@@ -1,0 +1,9 @@
+-- +migrate Up
+CREATE TABLE IF NOT EXISTS jobs (
+    id CHAR(36) PRIMARY KEY,  -- Assuming a UUID format for ID
+    description TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'PENDING' CHECK(status IN ('PENDING', 'PROCESSING', 'COMPLETED', 'FAILED')),
+    resume TEXT,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

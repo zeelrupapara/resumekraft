@@ -1,0 +1,6 @@
+# environments 
+.env
+
+# database
+/database/go-test-db.db
+/database/krafts.db
